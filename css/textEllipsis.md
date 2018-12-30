@@ -74,3 +74,18 @@ p {
 当行数大于或等于规定行数时，显示省略号，否则隐藏省略号。
 
 2. 使用js调整省略号出现的时机。
+
+### 3. float(尚在研究中)
+
+float经常被用于布局，但其实它出现的初衷是用于图像，使文字环绕其周围。
+
+借助文本浮动插入省略号，隐藏溢出部分，最终能形成较为自然的省略效果。
+
+```html
+<div style="height: 3.9rem; line-height: 1.3rem; overflow: hidden;">
+  <div style="width: 1px; height: 2.6rem; float: right;"></div>
+  <span style="float: right; clear: both;">...more</span>
+  Maybe they are simply great enough to receive without misgiving. Most think that they are above being supported by the town; but it often happens that they are not above supporting themselves by dishonest means, which should be more disreputable. Cultivate poverty like a garden herb, like sage.
+</div>
+```
+【问题】文本不需要省略时省略号仍然存在。
