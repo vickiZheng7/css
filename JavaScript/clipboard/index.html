@@ -5,17 +5,21 @@
 		<title>clipBoard</title>
 	</head>
 	<body>
-		<!--support paste element-->
+		<!--添加contenteditable元素以支持粘贴功能-->
 		<div contenteditable="true" style="display: none;"></div>
-		<h2>Image:</h2>
-		<img id="previewImg" src="default.png" alt="image"/>
+		<h2>image</h2>
+		<div id="previewImage">通过ctrl+v测试图片粘贴。</div>
+		<p id="tip" style="color: red;"></p>
 	</body>
 	<script>
+
 		document.addEventListener("paste", function(e) {
-			//items代表了粘贴数据的list
 			var items = (e.clipboardData || window.clipboardData).items;
-			//clipboardData.getData("text") 获取文本数据
-			if (!items || !items.length) {return;}
+			//items是ctrl+v内容的列表
+			if (!items || !items.length) {
+				document.getElementById("tip").innerHTML = "无粘贴内容";
+				return;
+			}
 
 			//获取粘贴的图片
 			var imageFile = null;
@@ -26,19 +30,26 @@
 					break;
 				}
 			}
+
+			if (!imageFile) {
+				document.getElementById("tip").innerHTML = "粘贴内容非图片";
+				return;
+			}
+			//预览图片
 			previewImage(imageFile);
+			//上传图片
 
 		});
 
-		//preview image
 		function previewImage(file) {
-			if (!file) {return;}
 			var reader = new FileReader();
 			reader.onload = function(event) {
-				document.getElementById("previewImg").src = event.target.result;
+				document.getElementById("previewImage").innerHTML = "<img src='" + event.target.result + "'/>";
 			};
-			//读取指定文件的内容，读取成功后,文件的内容将以URL字符串格式保存在reader.result的data中
 			reader.readAsDataURL(file);
+		}
+		function uploadFile(file) {
+
 		}
 	</script>
 </html>
