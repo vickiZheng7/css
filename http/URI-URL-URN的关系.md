@@ -1,33 +1,31 @@
 # URI、URL和URN
 
+URL，常用于标识互联网资源，大部分都称之为网址(URL不但被用作网络地址，也被JDBC客户端用于定位数据库服务器)。通过网络“位置”进行标识，并指定了对资源操作或获取的方法。
+
+通常URL和URI会被交替使用，以至于大家很难区分二者的关系。事实上，URL是URI最常见的形式，因此大部分情况下两个术语交替使用是没有异议的。URL仅是URI的子类，URL一定也是URI，但URI不见得都是URL。
+
+URN也是URI的子类之一，是URI较为罕见的一种形式，通过名称(基于特定的名字空间)指定资源，无需指出资源位置和获取方式(资源无需基于互联网)，为资源提供持久的、位置无关的标识方式。
+
+**简单理解，URI代表事物的标识，URL是通过地址查找事物的URI，URN是通过名称定义事物身份的URI。**
+
 ![URI、URL、URN关系图](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/URI_Euler_Diagram_no_lone_URIs.svg/320px-URI_Euler_Diagram_no_lone_URIs.svg.png)
 
-* URI语法：
-> 协议方案名:[//[用户名[:密码]@]
-* URL语法：
-* URN语法：
+> URL方案分类图。URL(定位符)和URN(名称)方案属于URI的子类，URI可以为URL或URN两者之一或同时是URL和URN。技术上讲，URL和URN属于资源ID；但是，人们往往无法将某种方案归类于两者中的某一个：所有的URI都可被作为名称看待，而某些方案同时体现了两者中的不同部分。
 
-URL我们不陌生，简单的浏览web网页的动作，就是在地址输入框中输入要访问的资源地址，也就是URL。可以理解为，URL是一串地址，指明资源位于互联网上的哪个位置。URI可能既熟悉又陌生，URN
+|名称|全称|语法|
+|----|----|----|
+|URI|统一资源标识符|协议方案名:[//[user[:password]@]host[:port]][/path][?query][#fragment]|
+|URL|统一资源定位符|协议类型:[//[user[:password]@]host[:port]][/path]文件名[?query][#fragment]|
+|URN|统一资源名称|urn:<命名空间>:\<NSS>|
 
-**URL全称Uniform Resource Locator，统一资源定位符。**
+### 例子：
+**URI**: URL和URI的例子同样属于URI的例子之一。
 
-**URI全称Uniform Resource Identifier，统一资源标识符。**
+**URL**: http://example.com:123/path/index.php??key=value&key2=value2#fragid1
 
-从全程可以读到一个信息，“统一资源”，二者最终都能确定到一个资源。可能平时也会观察到，URI和URL可互用。这两个概念可以但是如何区分？
+**URN**: urn:isbn:0451450523
 
-#### 小剧场：
-
-闲来无聊，想找多天不见的塑料好友唠嗑。
-
-**方式一**：这个塑料家住--(xx省xx市)戈壁镇不知名小区6栋6楼06房，通过位置我能准确定位找到好友，**这个地址就是URL**。
-
-**方式二**：懒得出门，翻出电话本，找到好友的手机号123456789，call过去。
-
-**方式三**：通过email邮箱邮件好友。
-
-**地址、电话、email**都能标识好友，类似的标识符还有很多，**能确认出唯一一个人的字符串即为URI**。
-
-#### 总结：
-
-提供资源位置信息的URL，只是URI确认资源的方式之一，即**URL是URI的子集**。
-
+### 参考资料：
+1. [URI统一资源标识符](https://zh.wikipedia.org/wiki/%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E6%A0%87%E5%BF%97%E7%AC%A6#%E4%B8%8EURL%E5%92%8CURN%E7%9A%84%E5%85%B3%E7%B3%BB)
+2. [URL统一资源定位符](https://zh.wikipedia.org/wiki/%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E5%AE%9A%E4%BD%8D%E7%AC%A6)
+3. [URI统一资源名称](https://zh.wikipedia.org/wiki/%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E5%90%8D%E7%A7%B0#CITEREFRFC_21411997)
