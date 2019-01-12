@@ -1,3 +1,5 @@
+# element-ui弹出框内容懒渲染问题
+
 其实这个问题之前已经遇到过了，但是还是在这里踩坑了。趁此机会整理一下，避免再犯。
 
 #### 问题描述
@@ -34,17 +36,17 @@ export default {
 
 使用elementUI 1.4版本的时候就遇到过这个问题了，当时一直以为是自己编码的错误，花了很多时间排查。后来控制台调试的时候发现，没有打开dialog之前是介个样子的：
 
-![dialog打开之前](./1.PNG)
+![dialog打开之前](./dialog-ztree-1.PNG)
 
 第一次打开dialog之后：
 
-![dialog第一次打开之后](./2.PNG)
+![dialog第一次打开之后](./dialog-ztree-2.PNG)
 
 基本就能明白，dialog的内容是懒渲染模式。在`el-dialog__body`未渲染之前是无法获取到其中的DOM元素进行操作的。
 
 在elementui最新版本的文档中也有提示出来了：
 
-![dialog懒渲染](./3.PNG)
+![dialog懒渲染](./dialog-ztree-3.PNG)
 
 #### 问题解决
 
