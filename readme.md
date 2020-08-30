@@ -1,6 +1,6 @@
 # NoteBook
 
-基础知识整理以及学习笔记。
+每天都要巩固一下基础知识。
 
 ## CSS
 1. [文本省略](1-前端开发/2-CSS/textEllipsis.md)
